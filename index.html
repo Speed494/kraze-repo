@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KRAZE REPO | Termux APT Repository</title>
+
+    <meta name="description" content="KRAZE REPO - A custom APT repository for Termux. Simple, lightweight and powerful.">
+    <meta name="theme-color" content="#09090f">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #09090f;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --purple: #9b5cff;
+            --light-purple: #bd91ff;
+            --card: #12121c;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        /* Background */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #702cff;
+            filter: blur(180px);
+            opacity: 0.13;
+            top: -200px;
+            left: 25%;
+            z-index: -1;
+        }
+
+        /* Navbar */
+
+        nav {
+            height: 75px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: rgba(9,9,15,0.85);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #aaa;
+            margin-left: 28px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .tag {
+            border: 1px solid rgba(155,92,255,0.4);
+            color: var(--light-purple);
+            background: rgba(155,92,255,0.08);
+            padding: 9px 17px;
+            border-radius: 30px;
+            font-size: 12px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 95px);
+            font-weight: 900;
+            letter-spacing: -5px;
+            line-height: 1;
+        }
+
+        .hero h1 span {
+            color: var(--purple);
+            text-shadow: 0 0 40px rgba(155,92,255,0.4);
+        }
+
+        .hero p {
+            max-width: 550px;
+            color: #999;
+            line-height: 1.8;
+            margin: 25px 0 35px;
+            font-size: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: var(--purple);
+            color: white;
+            box-shadow: 0 0 25px rgba(155,92,255,0.2);
+        }
+
+        .primary:hover {
+            background: #8240ef;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .secondary:hover {
+            border-color: var(--purple);
+        }
+
+        /* Sections */
+
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        /* Cards */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(155,92,255,0.6);
+            transform: translateY(-5px);
+        }
+
+        .card .icon {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* Install */
+
+        .terminal {
+            background: #0e0e16;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .dots span {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background: #ff5f57;
+        }
+
+        .dots span:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .dots span:nth-child(3) {
+            background: #28c840;
+        }
+
+        .terminal-header small {
+            color: #777;
+        }
+
+        .terminal-body {
+            padding: 25px;
+            overflow-x: auto;
+        }
+
+        .terminal-body code {
+            color: #c69aff;
+            font-size: 13px;
+            line-height: 2.5;
+            white-space: pre;
+        }
+
+        .copy-btn {
+            background: rgba(155,92,255,0.15);
+            color: #c69aff;
+            border: 1px solid rgba(155,92,255,0.3);
+            padding: 8px 13px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        .copy-btn:hover {
+            background: var(--purple);
+            color: white;
+        }
+
+        /* Info */
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .info div {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .info small {
+            color: #777;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .info strong {
+            font-size: 14px;
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 8%;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: var(--purple);
+        }
+
+        /* Responsive */
+
+        @media(max-width: 600px) {
+            nav {
+                padding: 0 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 11px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">KRAZE<span>.</span></div>
+
+        <div>
+            <a href="#features">Features</a>
+            <a href="#install">Install</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+
+        <div class="tag">⚡ CUSTOM TERMUX APT REPOSITORY</div>
+
+        <h1>KRAZE <span>REPO</span></h1>
+
+        <p>
+            A custom APT repository built for Termux.
+            Simple, lightweight and powerful tools
+            for your command-line environment.
+        </p>
+
+        <div class="buttons">
+            <a href="#install" class="btn primary">Get Started →</a>
+
+            <a href="https://github.com/Speed494/kraze-repo"
+               target="_blank" class="btn secondary">
+                GitHub Repository ↗
+            </a>
+        </div>
+
+    </header>
+
+    <section id="features">
+
+        <h2 class="section-title">Why KRAZE?</h2>
+
+        <p class="section-desc">
+            Built to make package management simple and convenient.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Lightweight</h3>
+                <p>Designed to keep your Termux environment simple and efficient.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>APT Packages</h3>
+                <p>Install available tools directly through the APT package manager.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔓</div>
+                <h3>Open Source</h3>
+                <p>Explore the repository and its package source code on GitHub.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="install">
+
+        <h2 class="section-title">Installation</h2>
+
+        <p class="section-desc">
+            Follow these commands in your Termux terminal.
+        </p>
+
+        <div class="terminal">
+
+            <div class="terminal-header">
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <small>Termux Terminal</small>
+
+                <button class="copy-btn" onclick="copyCommands()">
+                    Copy Commands
+                </button>
+            </div>
+
+            <div class="terminal-body">
+                <code id="commands">$ pkg update && pkg upgrade
+$ pkg install wget
+$ echo "deb [trusted=yes] https://speed494.github.io/kraze-repo stable main" >> $PREFIX/etc/apt/sources.list
+$ pkg update</code>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <h2 class="section-title">Repository Information</h2>
+
+        <p class="section-desc">
+            Everything you need to know about KRAZE REPO.
+        </p>
+
+        <div class="info">
+
+            <div>
+                <small>Repository Name</small>
+                <strong>KRAZE REPO</strong>
+            </div>
+
+            <div>
+                <small>Platform</small>
+                <strong>Termux / Android</strong>
+            </div>
+
+            <div>
+                <small>Architecture</small>
+                <strong>ARM64 / aarch64</strong>
+            </div>
+
+            <div>
+                <small>Repository Type</small>
+                <strong>APT Repository</strong>
+            </div>
+
+            <div>
+                <small>Owner</small>
+                <strong>Speed494</strong>
+            </div>
+
+            <div>
+                <small>Status</small>
+                <strong>Active Development</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>
+            © 2026 <strong>KRAZE REPO</strong>.
+            Built for the Termux community.
+        </p>
+
+        <p style="margin-top:10px;">
+            Powered by GitHub Pages.
+        </p>
+    </footer>
+
+    <script>
+
+        function copyCommands() {
+
+            const commands = document.getElementById("commands").innerText;
+
+            navigator.clipboard.writeText(commands)
+                .then(() => {
+                    const button = document.querySelector(".copy-btn");
+
+                    button.innerText = "Copied! ✓";
+
+                    setTimeout(() => {
+                        button.innerText = "Copy Commands";
+                    }, 2000);
+                })
+                .catch(() => {
+                    alert("Copy failed. Please copy the commands manually.");
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
