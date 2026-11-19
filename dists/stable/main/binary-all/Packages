@@ -1,0 +1,14 @@
+Package: sms-bomber
+Version: 1.0.0
+Architecture: all
+Depends: python
+Maintainer: Ashutosh Das ( kraze )
+Description: Kraze Python Utility
+ Python based command line utility.
+Filename: dists/stable/main/binary-all/sms-bomber.deb
+Size: 6956
+MD5Sum: 59a14a96c801f3b08d0a704eb70b2ec6
+SHA1: cd24082bae4691059283b4696c2c3d683ac455ef
+SHA256: 66f66be403f7a3348b720f4ab55df32bec4089862dd4d472cfe20f4ea78641a8
+SHA512: 6876d0ab9c07374949722e733e91bbb0b5a5bfba82490cea15d98a2587bc2e0506d987501da460e892c98980c4fe4ebcc347e389980fb57aae02600f9bcdf0fe
+
