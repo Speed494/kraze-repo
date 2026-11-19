@@ -1,6 +1,8 @@
 
 #!/data/data/com.termux/files/usr/bin/bash
 
+set -e
+
 REPO="https://speed494.github.io/kraze-repo"
 KEY="$PREFIX/etc/apt/keyrings/kraze-repo.gpg"
 SOURCE="$PREFIX/etc/apt/sources.list.d/kraze.list"
@@ -12,12 +14,11 @@ fi
 
 echo "[+] Setting up Kraze repository..."
 
-mkdir -p "$PREFIX/etc/apt/keyrings"
+mkdir -p "$PREFIX/etc/apt/keyrings" "$PREFIX/etc/apt/sources.list.d"
 
-echo "[+] Downloading repository key..."
+echo "[+] Downloading GPG key..."
 if ! curl -fsSL "$REPO/kraze-repo.gpg" -o "$KEY"; then
     echo "[!] Failed to download GPG key."
-    echo "Run: pkg install curl gnupg -y"
     exit 1
 fi
 
@@ -26,10 +27,9 @@ chmod 644 "$KEY"
 echo "[+] Adding repository..."
 echo "deb [signed-by=$KEY] $REPO stable main" > "$SOURCE"
 
-echo "[+] Updating package list..."
+echo "[+] Updating package lists..."
 if ! apt update; then
     echo "[!] Repository update failed."
-    echo "Check your internet connection or repository configuration."
     exit 1
 fi
 
@@ -39,5 +39,4 @@ if ! apt install sms-bomber -y; then
     exit 1
 fi
 
-echo ""
-echo "[+] Done! Kraze package installed."
+echo "[+] Kraze Repo setup complete!"
