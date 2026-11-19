@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # ⚡ KRAZE REPO
@@ -19,23 +18,19 @@
 
 ## 🚀 About
 
-**Kraze Repo** is an independent APT repository designed specifically for Termux.
+**Kraze Repo** is an independent APT repository built for Termux.
 
-It provides a convenient way to distribute, manage, and install custom Debian packages using the APT package manager.
-
-The main goal of Kraze Repo is to make package distribution simple, accessible, and reliable for Termux users.
+It provides an easy way to install and manage custom Debian packages directly through the APT package manager.
 
 ## ✨ Features
 
 - ⚡ One-command installation
-- 📦 APT-based package management
+- 📦 APT package management
 - 🔐 GPG-signed repository metadata
-- 📱 Designed specifically for Termux
+- 📱 Designed for Termux
 - 🌐 Hosted on GitHub Pages
-- 🛠️ Simple package distribution
-- 🔄 Easy repository updates
-- 🔒 Package authenticity verification
-- 🚀 Lightweight and convenient
+- 🔄 Easy package updates
+- 🛠️ Lightweight and simple
 
 ## 📥 Installation
 
@@ -45,54 +40,36 @@ Install Kraze Repo with a single command:
 curl -fsSL https://speed494.github.io/kraze-repo/install.sh | bash
 ```
 
-After installation, update your package lists:
+Update package lists:
 
 ```bash
 apt update
 ```
 
-You can now install available packages directly through APT.
-
 ## 📦 Available Packages
-
-The following packages are currently available in Kraze Repo:
 
 | Package | Description |
 |:---|:---|
-| `sms-bomber` | Use on your own risk |
+| `sms-bomber` | Use only with proper authorization and at your own risk. |
 
-### Install a Package
+### Install
 
 ```bash
 apt install sms-bomber
 ```
 
-### Run a Package
+### Run
 
 ```bash
 sms-bomber
 ```
 
-### View Package Information
-
-```bash
-apt show sms-bomber
-```
-
 ## 🔄 Package Management
 
-Kraze Repo uses the standard APT package management system.
-
-**Update package lists:**
+**Update packages:**
 
 ```bash
-apt update
-```
-
-**Upgrade installed packages:**
-
-```bash
-apt upgrade
+apt update && apt upgrade
 ```
 
 **Install a package:**
@@ -107,33 +84,15 @@ apt install package-name
 apt remove package-name
 ```
 
-**Completely remove a package:**
-
-```bash
-apt purge package-name
-```
-
-**Search for available packages:**
+**Search packages:**
 
 ```bash
 apt search package-name
 ```
 
-**View package information:**
-
-```bash
-apt show package-name
-```
-
-**List installed packages:**
-
-```bash
-apt list --installed
-```
-
 ## 🗑️ Uninstall
 
-To remove Kraze Repo from Termux, execute:
+To remove Kraze Repo:
 
 ```bash
 rm -f "$PREFIX/etc/apt/sources.list.d/kraze.list"
@@ -141,125 +100,54 @@ rm -f "$PREFIX/etc/apt/keyrings/kraze.gpg"
 apt update
 ```
 
-Removing the repository does not automatically uninstall packages previously installed from it.
+Previously installed packages will remain installed.
 
 ## 🔐 Security
 
-Kraze Repo uses GPG-signed repository metadata to help verify repository authenticity and integrity.
+Kraze Repo uses GPG-signed repository metadata to help verify repository authenticity.
 
-Security practices include:
+- Verify repository signatures before trusting packages.
+- Check the public key fingerprint through an independent source.
+- Review packages before installation.
 
-- GPG signature verification.
-- Repository metadata integrity checks.
-- Public key verification.
-- Package source transparency.
-- Secure package distribution practices.
+## ❤️ Credits & Attribution
 
-Always verify the repository's public key fingerprint through an independent trusted source before installation.
+KRAZE REPO is an independent project created and maintained by **Ashutosh Das**.
 
-Never install packages from sources you do not trust.
+If you find this project useful, feel free to use it, share it, or build something with it.
 
-## 👑 Ownership & Attribution
+We genuinely appreciate it when users acknowledge the original work and give credit to its creator.
 
-**KRAZE REPO** is an independently developed project.
+If you use or share this project, please include:
 
-The original project identity, branding, repository history, and original materials belong to their respective copyright owner.
+- **Project:** KRAZE REPO
+- **Creator:** Ashutosh Das
+- **GitHub:** https://github.com/Speed494/kraze-repo
 
-The following principles apply:
+A simple credit or link back to the original repository means a lot and helps the project reach more people.
 
-- Original authorship must always be acknowledged.
-- Forking this repository does not transfer ownership of the original project.
-- Modified versions must not falsely claim to be the original KRAZE REPO.
-- Third-party contributors must be credited for their individual contributions.
-- Original copyright and attribution notices must not be removed.
-- Improvements made by third parties do not automatically transfer ownership of the original project.
-- No individual or organization may falsely represent themselves as the original creator or owner.
-- Any authorized derivative project must clearly distinguish itself from the original project.
-
-**Original project identity and authorship must remain distinguishable from third-party modifications.**
-
-## ⚖️ Copyright & Permissions
-
-**All rights reserved.**
-
-Unless explicitly authorized by the copyright owner or permitted by applicable law:
-
-- Unauthorized redistribution of this project's original materials is prohibited.
-- Publishing modified copies requires prior written permission.
-- Commercial redistribution requires prior authorization.
-- Rebranding the original project as someone else's creation is prohibited.
-- Original copyright notices and attribution information must not be removed.
-- The KRAZE REPO name and branding must not be used to falsely imply official ownership or endorsement.
-- Republishing the original project under another identity without authorization is prohibited.
-
-Any permission granted for modifications or contributions does not automatically transfer ownership of the original project.
-
-These restrictions are subject to applicable copyright law and any separate written license or permission granted by the copyright owner.
-
-## 📢 Project Identity
-
-KRAZE REPO is an independent project.
-
-The official repository and project updates are published through:
-
-- **GitHub Repository:** https://github.com/Speed494/kraze-repo
-- **Repository Website:** https://speed494.github.io/kraze-repo/
-
-Always refer to the original repository for official releases, updates, and package information.
-
-Be careful of unofficial copies that may use the project's name or branding without authorization.
-
-## 💬 Community & Feedback
-
-Suggestions, bug reports, and feature requests are welcome.
-
-Users can report issues through the official GitHub repository.
-
-Please respect the project's ownership, attribution, and licensing terms when discussing or sharing the project.
+**Respect the work. Give credit. Support open source. ❤️**
 
 ## ⚠️ Disclaimer
 
-Kraze Repo is an independent community project and is not affiliated with, endorsed by, or officially associated with the official Termux development team.
+Kraze Repo is an independent project and is not affiliated with the official Termux development team.
 
-All packages are provided for their respective intended purposes.
+Use packages responsibly. The project maintainer is not responsible for damage caused by improper use of packages.
 
-Always review packages and understand their functionality before installing them.
+## 📜 License
 
-The project maintainer is not responsible for damage caused by improperly used third-party packages or unauthorized modifications.
+KRAZE REPO is licensed under the **MIT License**.
 
-## 📜 License & Credits
+See the [LICENSE](LICENSE) file for details.
 
-KRAZE REPO is proudly developed and maintained as an independent project.
-
-This project is licensed under the **MIT License**.
-
-If you find KRAZE REPO useful and decide to use, share, or build something based on it, we would genuinely appreciate a little credit.
-
-A mention or link to the original repository helps the project grow and allows more people to discover it.
-
-### ❤️ Give Credit
-
-If you use or share KRAZE REPO, please consider giving credit:
-
-- **Project:** KRAZE REPO
-- **Original Repository:** https://github.com/Speed494/kraze-repo
-- **Developer:** Ashutosh Das
-
-A simple mention or a link back to the original repository means a lot.
-
-**Respect the original work. Appreciate the creator. Keep the community growing.**
-
-Thank you for supporting KRAZE REPO! ⚡
 ---
 
 <div align="center">
 
 # ⚡ KRAZE REPO
 
-### Built for Termux. Made for the community.
+**Built for Termux. Made for the community.**
 
-**Independent Development • Original Project**
-
-*© 2026 KRAZE REPO. All rights reserved.*
+*© 2026 Ashutosh Das*
 
 </div>
