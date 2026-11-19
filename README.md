@@ -59,7 +59,7 @@ The following packages are currently available in Kraze Repo:
 
 | Package | Description |
 |:---|:---|
-| `sms-bomber` | Terminal loop demonstration utility |
+| `sms-bomber` | Use on your own risk |
 
 ### Install a Package
 
