@@ -9,7 +9,7 @@
 
 [![Platform](https://img.shields.io/badge/Platform-Termux-green?style=for-the-badge)](https://termux.dev/)
 [![Repository](https://img.shields.io/badge/Repository-GitHub-black?style=for-the-badge&logo=github)](https://github.com/Speed494/kraze-repo)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 **Install packages. Manage tools. Keep it simple.**
 
